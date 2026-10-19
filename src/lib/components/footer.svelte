@@ -1,45 +1,48 @@
-<script>
+<script lang="ts">
+  import { BAND_NAME, SOCIAL_LINKS } from '$lib/constants';
+
+  const links = SOCIAL_LINKS.filter((link) => link.url);
+  const year = new Date().getFullYear();
 </script>
 
 <footer>
-  <a href="https://instagram.com/yflband" rel="noreferrer" target="_blank"
-    >Instagram</a
-  >
-  <a href="https://facebook.com/YFLband/" rel="noreferrer" target="_blank"
-    >Facebook</a
-  >
-  <a
-    href="https://open.spotify.com/artist/6L94XX8aTFA0A4bmgaI52z"
-    rel="noreferrer"
-    target="_blank">Spotify</a
-  >
-  <a
-    href="https://youtube.com/channel/UC7VkRzyvfj9ToHZLIQ1tMcw"
-    rel="noreferrer"
-    target="_blank">YouTube</a
-  >
-  <a href="mailto:yfl.booking@gmail.com" rel="noreferrer" target="_blank"
-    >Email</a
-  >
+  {#if links.length}
+    <nav aria-label="Social links">
+      {#each links as link}
+        <a href={link.url} rel="noreferrer" target="_blank">{link.label}</a>
+      {/each}
+    </nav>
+  {/if}
+  <p>© {year} {BAND_NAME}</p>
 </footer>
 
 <style>
   footer {
-    display: flex;
-    justify-content: space-between;
-    margin: 48px 0;
-
-    @media (max-width: 648px) {
-      flex-direction: column;
-    }
+    margin: 64px 0 0;
   }
 
-  footer > a {
-    color: rgb(237, 229, 214);
-    padding: 24px 0;
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    justify-content: center;
+  }
 
-    @media (max-width: 648px) {
-      flex-direction: column;
-    }
+  a {
+    color: var(--fg);
+    font-weight: 600;
+    padding: 12px 0;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+  }
+
+  a:hover {
+    border-bottom-color: var(--accent);
+  }
+
+  p {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 32px 0 0;
   }
 </style>

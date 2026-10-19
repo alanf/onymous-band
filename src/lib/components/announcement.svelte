@@ -42,8 +42,8 @@
 
 <style>
   div {
-    background-color: rgb(237, 229, 214);
-    color: #212121;
+    background-color: var(--accent);
+    color: var(--bg);
 
     position: fixed;
     bottom: 24px;
@@ -61,13 +61,14 @@
   }
 
   button {
-    background-color: rgb(237, 229, 214);
-    color: #212121;
+    background-color: var(--accent);
+    color: var(--bg);
 
     align-self: flex-end;
     border: none;
     cursor: pointer;
-    font-family: sans-serif;
+    font-family: inherit;
+    font-weight: 600;
     padding: 16px 24px;
   }
 
@@ -80,7 +81,7 @@
   }
 
   a {
-    color: #212121;
+    color: var(--bg);
     display: flex;
     margin-bottom: 8px;
     padding: 8px 12px;

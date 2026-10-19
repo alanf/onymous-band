@@ -1,40 +1,45 @@
-# Your Fearless Leader
+# Alan Onymous
 
-Source code for [yfl.band](https://yfl.band).
+Source code for the Alan Onymous band website.
 
 ## Making basic content changes
 
-1. Visit [constants.ts](https://github.com/ghaagsma/yfl-band/blob/main/src/lib/constants.ts).
-1. Select the pencil icon (`Edit this file`).
-1. Make desired changes.
-1. Select the `Commit changes...` button.
-1. Ensure the `Create a new branch for this commit and start a pull request` option is enabled.
-1. Select the `Propose changes` button.
-1. Select the `Create pull request` button.
-1. Wait for all checks to finish (should take less than one minute).
-1. Open the `Details` link in a new tab, and verify your change in the preview deployment.
-   1. **Make sure the change looks good for narrow and wide screens!**
-1. Close the preview deployment and select `Merge pull request`.
-1. Select `Confirm merge`. The changes should automatically deploy and be live within two minutes.
+Everything you'll usually want to edit — bio, shows, links, embeds,
+announcement banner — is in
+[`src/lib/constants.ts`](src/lib/constants.ts).
+
+1. Open `src/lib/constants.ts` on GitHub and select the pencil icon (`Edit this file`).
+2. Make your changes.
+3. Select `Commit changes...`, choose `Create a new branch for this commit and start a pull request`, then `Propose changes` → `Create pull request`.
+4. Wait for the Vercel check (under a minute) and open its preview link. **Check it on both phone and desktop widths.**
+5. Select `Merge pull request` → `Confirm merge`. The live site updates within a couple of minutes.
+
+### Adding a show
+
+Add a line to `SHOWS` in `constants.ts`:
+
+```ts
+{ date: '2026-12-05', venue: 'The Chapel', city: 'San Francisco, CA', ticketUrl: 'https://…' },
+```
+
+Past dates disappear automatically. If no shows are upcoming, the section hides.
+
+### Changing the band photo
+
+Replace `src/lib/images/band-photo.jpg` (or `.png` / `.webp`) — square works best, at least 1200 px.
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
+```sh
+npm install
 npm run dev
 ```
 
 ## Building
 
-To create a production version of the application:
-
-```bash
+```sh
 npm run build
+npm run preview
 ```
 
-You can preview the production build with `npm run preview`.
-
-## This repository was created via `create-svelte`
-
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Originally based on [jerrypopsoff/yfl-band](https://github.com/jerrypopsoff/yfl-band).
