@@ -36,8 +36,8 @@ export const BAND_PHOTO_ALT =
  * appear without a link.
  *
  * @example
- * export const ANNOUNCEMENT_TEXT = '';
- * export const ANNOUNCEMENT_ACTION_TEXT = '';
+ * export const ANNOUNCEMENT_TEXT = 'New single out Friday';
+ * export const ANNOUNCEMENT_ACTION_TEXT = 'PRE-SAVE';
  * export const ANNOUNCEMENT_URL = 'https://example.com';
  */
 export const ANNOUNCEMENT_TEXT = '';
