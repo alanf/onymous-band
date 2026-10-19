@@ -39,9 +39,10 @@ export const BAND_PHOTO_ALT = 'Photograph of Alan Onymous band members';
  * export const ANNOUNCEMENT_ACTION_TEXT = 'PRE-SAVE';
  * export const ANNOUNCEMENT_URL = 'https://example.com';
  */
-export const ANNOUNCEMENT_TEXT = '';
-export const ANNOUNCEMENT_ACTION_TEXT = '';
-export const ANNOUNCEMENT_URL = '';
+export const ANNOUNCEMENT_TEXT = 'Debut album ALLOW ALL — early 2027';
+export const ANNOUNCEMENT_ACTION_TEXT = 'FOLLOW';
+export const ANNOUNCEMENT_URL =
+  'https://open.spotify.com/artist/6nzeqJpWwbzBRb12gE3Vvp';
 
 /**
  * Upcoming shows. Add one line per show; past shows (by date) are hidden
