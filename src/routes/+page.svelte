@@ -63,7 +63,7 @@
     --bg: #0f0f10;
     --fg: #f3f1ec;
     --muted: #9a978f;
-    --accent: #d9ff3f;
+    --accent: #a78bfa;
     --line: rgba(243, 241, 236, 0.14);
   }
 
