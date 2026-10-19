@@ -59,7 +59,8 @@ export const SHOWS: Show[] = [
  * Spotify embedded player URL. In Spotify: Share → Embed → copy, then keep only
  * the `src="…"` value. Leave empty to hide the player.
  */
-export const SPOTIFY_EMBED_URL = '';
+export const SPOTIFY_EMBED_URL =
+  'https://open.spotify.com/embed/artist/6nzeqJpWwbzBRb12gE3Vvp?utm_source=generator&theme=0';
 
 /**
  * YouTube embedded player URL. On YouTube: Share → Embed → copy, then keep only
@@ -72,11 +73,14 @@ export const YOUTUBE_EMBED_URL = '';
  * hidden. Reorder freely.
  */
 export const SOCIAL_LINKS: { label: string; url: string }[] = [
-  { label: 'Instagram', url: '' },
-  { label: 'Spotify', url: '' },
-  { label: 'YouTube', url: '' },
+  { label: 'Instagram', url: 'https://www.instagram.com/alan_onymous/' },
+  {
+    label: 'Spotify',
+    url: 'https://open.spotify.com/artist/6nzeqJpWwbzBRb12gE3Vvp',
+  },
   { label: 'Bandcamp', url: '' },
-  { label: 'Email', url: '' }, // e.g. 'mailto:booking@example.com'
+  { label: 'YouTube', url: '' },
+  { label: 'Email', url: 'mailto:alan0nymous@proton.me' },
 ];
 
 /** Google Analytics 4 measurement ID (G-XXXXXXX). Empty = no analytics. */
