@@ -84,9 +84,6 @@ export const SOCIAL_LINKS: { label: string; url: string }[] = [
   { label: 'Email', url: 'mailto:alan0nymous@proton.me' },
 ];
 
-/** Google Analytics 4 measurement ID (G-XXXXXXX). Empty = no analytics. */
-export const GTAG_MEASUREMENT_ID = '';
-
 export type Show = {
   date: string;
   venue: string;

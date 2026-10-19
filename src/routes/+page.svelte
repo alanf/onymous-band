@@ -4,7 +4,6 @@
   import EmbeddedAudio from '$lib/components/embedded-audio.svelte';
   import Shows from '$lib/components/shows.svelte';
   import Footer from '$lib/components/footer.svelte';
-  import Analytics from '$lib/components/analytics.svelte';
   import Announcement from '$lib/components/announcement.svelte';
   import {
     BAND_NAME,
@@ -38,7 +37,6 @@
   {#if bandPhoto}<meta property="og:image" content={bandPhoto} />{/if}
 </svelte:head>
 
-<Analytics />
 <Announcement />
 
 <main>
