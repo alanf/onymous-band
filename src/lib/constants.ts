@@ -78,7 +78,7 @@ export const SOCIAL_LINKS: { label: string; url: string }[] = [
     label: 'Spotify',
     url: 'https://open.spotify.com/artist/6nzeqJpWwbzBRb12gE3Vvp',
   },
-  { label: 'Bandcamp', url: '' },
+  { label: 'Bandcamp', url: 'https://alanonymous.bandcamp.com' },
   { label: 'YouTube', url: '' },
   { label: 'Email', url: 'mailto:alan0nymous@proton.me' },
 ];
