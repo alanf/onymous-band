@@ -9,6 +9,9 @@
 /** Band name, shown as the big header and in the browser tab. */
 export const BAND_NAME = 'Alan Onymous';
 
+/** The site's public address (no trailing slash). Used for link previews. */
+export const SITE_URL = 'https://www.alanonymo.us';
+
 /** One-line description used by Google and link previews (Instagram, iMessage…). */
 export const SITE_DESCRIPTION =
   'Alan Onymous — darkwave/alternative from San Francisco. Debut album ALLOW ALL, mixed by Jorge Elbrecht, arrives early 2027.';

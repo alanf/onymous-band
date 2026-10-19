@@ -10,6 +10,7 @@
     BAND_PHOTO_ALT,
     BIO_TEXT,
     SITE_DESCRIPTION,
+    SITE_URL,
     SPOTIFY_EMBED_URL,
     YOUTUBE_EMBED_URL,
   } from '$lib/constants';
@@ -34,7 +35,13 @@
   <meta property="og:title" content={BAND_NAME} />
   <meta property="og:description" content={SITE_DESCRIPTION} />
   <meta property="og:type" content="website" />
-  {#if bandPhoto}<meta property="og:image" content={bandPhoto} />{/if}
+  <meta property="og:url" content={SITE_URL} />
+  <link rel="canonical" href={SITE_URL} />
+  <meta name="twitter:card" content="summary_large_image" />
+  {#if bandPhoto}
+    <meta property="og:image" content={new URL(bandPhoto, SITE_URL).href} />
+    <meta property="og:image:alt" content={BAND_PHOTO_ALT} />
+  {/if}
 </svelte:head>
 
 <Announcement />
