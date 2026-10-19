@@ -11,7 +11,7 @@ export const BAND_NAME = 'Alan Onymous';
 
 /** One-line description used by Google and link previews (Instagram, iMessage…). */
 export const SITE_DESCRIPTION =
-  'Alan Onymous — official website. Music, videos, and upcoming shows.';
+  'Alan Onymous — darkwave/alternative from San Francisco. Debut album ALLOW ALL, mixed by Jorge Elbrecht, arrives early 2027.';
 
 /**
  * Biographical text for the band. Separate paragraphs with a blank line
