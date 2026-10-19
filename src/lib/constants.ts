@@ -17,7 +17,11 @@ export const SITE_DESCRIPTION =
  * Biographical text for the band. Separate paragraphs with a blank line
  * (two newlines).
  */
-export const BIO_TEXT = `[PLACEHOLDER BIO] Alan Onymous is a band. Replace this with two or three sentences about who you are, where you're from, and what you sound like.`;
+export const BIO_TEXT = `Alan Onymous is an emerging darkwave/alternative project that grapples with the consequences of looking beneath the surface of identity, artificial intelligence, and human nature.
+
+Their debut album, ALLOW ALL, is set for release in early 2027. Mixed by Jorge Elbrecht, it is rife with multiple meanings and genres.
+
+Formed by members of San Francisco acts Your Fearless Leader, Embrium, and Mitch Rocket, Alan Onymous brings a live show that uses electronic drums and keys, baritone guitar, and live vocals and drums to paint with a wide range of sonic colors that reach into every level of consciousness.`;
 
 /** Alt text for the band photo (describe what's in it, for screen readers). */
 export const BAND_PHOTO_ALT = 'Photograph of Alan Onymous band members';
