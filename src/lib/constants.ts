@@ -24,7 +24,8 @@ Their debut album, ALLOW ALL, is set for release in early 2027. Mixed by Jorge E
 Formed by members of San Francisco acts Your Fearless Leader, Embrium, and Mitch Rocket, Alan Onymous brings a live show that uses electronic drums and keys, baritone guitar, and live vocals and drums to paint with a wide range of sonic colors that reach into every level of consciousness.`;
 
 /** Alt text for the band photo (describe what's in it, for screen readers). */
-export const BAND_PHOTO_ALT = 'Photograph of Alan Onymous band members';
+export const BAND_PHOTO_ALT =
+  'The four members of Alan Onymous, eyes hidden behind black bars and a silver mask, posed among classical columns and a bust under red light';
 
 /**
  * Text content and destination URL. Use these values to display an
