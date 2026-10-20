@@ -36,7 +36,7 @@ export const actions: Actions = {
     const errors: Record<string, string> = {};
     if (!values.name) errors.name = 'Enter your name.';
     if (!EMAIL_RE.test(values.email)) errors.email = 'Enter a valid email.';
-    if (!values.message) errors.message = 'Add a short message.';
+    if (!values.message) errors.message = 'Tell us a little about the event.';
     if (Object.keys(errors).length) {
       return fail(400, { values, errors });
     }

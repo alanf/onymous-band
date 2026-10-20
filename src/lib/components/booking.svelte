@@ -123,7 +123,7 @@
           rows="5"
           required
           maxlength="5000"
-          placeholder="Venue and city, other acts, set length, pay/guarantee"
+          placeholder="Tell us about the event! Where it is, who else is playing, and anything else we should know."
           aria-invalid={Boolean(errors.message)}
           >{values.message ?? ''}</textarea
         >
