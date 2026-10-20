@@ -99,11 +99,17 @@ export const YOUTUBE_EMBED_URL = '';
 /** Where booking inquiries go (shown in the Booking section and footer). */
 export const BOOKING_EMAIL = 'alan0nymous@proton.me';
 
-/** Short line shown above the booking buttons. */
+/**
+ * "From" address for booking-form emails. Must be on a domain verified in
+ * Resend. Replies go to whoever filled in the form.
+ */
+export const BOOKING_FROM = 'booking@alanonymo.us';
+
+/** Short line shown above the booking form. */
 export const BOOKING_TEXT =
   'For shows, press, and other inquiries, get in touch.';
 
-/** Pre-filled email template for the "Email us" button. */
+/** Pre-filled email template for the "email us directly" fallback link. */
 export const BOOKING_SUBJECT = 'Booking inquiry: Alan Onymous';
 export const BOOKING_BODY = `Hi Alan Onymous,
 

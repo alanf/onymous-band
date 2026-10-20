@@ -27,6 +27,9 @@
   ) as Record<string, string>;
   const bandPhoto = Object.values(photos)[0];
 
+  /** Result of the booking form action (see +page.server.ts). */
+  export let form: import('./$types').ActionData;
+
   const paragraphs = BIO_TEXT.split(/\n\s*\n/).filter(Boolean);
 </script>
 
@@ -59,7 +62,7 @@
     {/each}
   </div>
   <Shows />
-  <Booking />
+  <Booking {form} />
   {#if YOUTUBE_EMBED_URL}<EmbeddedVideo />{/if}
   {#if SPOTIFY_EMBED_URL}<EmbeddedAudio />{/if}
   <Footer />
