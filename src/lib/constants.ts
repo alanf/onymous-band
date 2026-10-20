@@ -22,7 +22,7 @@ export const SITE_DESCRIPTION =
  */
 export const BIO_TEXT = `Alan Onymous is an emerging darkwave/alternative project that grapples with the consequences of peering beneath the surface of identity, artificial intelligence, and human nature.
 
-Debut album ALLOW ALL is set for release in early 2027. Mixed by Jorge Elbrecht, it is rife with multiple meanings and spans multiple genres.
+Debut album ALLOW ALL is set for release in early 2027. Mixed by Jorge Elbrecht, it is rife with multiple meanings and spans across genres.
 
 Formed by members of San Francisco acts Your Fearless Leader, Embrium, and Mitch Rocket, Alan Onymous brings a live show that uses electronic drums and keys, baritone guitar, and live vocals and drums to paint with a wide range of sonic colors that reach into every level of consciousness.`;
 
