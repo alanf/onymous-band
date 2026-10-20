@@ -38,10 +38,11 @@
   <meta property="og:url" content={SITE_URL} />
   <link rel="canonical" href={SITE_URL} />
   <meta name="twitter:card" content="summary_large_image" />
-  {#if bandPhoto}
-    <meta property="og:image" content={new URL(bandPhoto, SITE_URL).href} />
-    <meta property="og:image:alt" content={BAND_PHOTO_ALT} />
-  {/if}
+  <!-- Wide link-preview image: static/og-image.jpg (1200×630) -->
+  <meta property="og:image" content={`${SITE_URL}/og-image.jpg`} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content={BAND_PHOTO_ALT} />
 </svelte:head>
 
 <Announcement />
