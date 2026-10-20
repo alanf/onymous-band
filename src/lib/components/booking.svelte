@@ -123,7 +123,7 @@
           rows="5"
           required
           maxlength="5000"
-          placeholder="Tell us about the event! Where it is, who else is playing, and anything else we should know."
+          placeholder="Tell us your event thoughts (who, what, where, etc.)"
           aria-invalid={Boolean(errors.message)}
           >{values.message ?? ''}</textarea
         >
