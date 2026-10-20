@@ -3,6 +3,7 @@
   import EmbeddedVideo from '$lib/components/embedded-video.svelte';
   import EmbeddedAudio from '$lib/components/embedded-audio.svelte';
   import Shows from '$lib/components/shows.svelte';
+  import Booking from '$lib/components/booking.svelte';
   import Footer from '$lib/components/footer.svelte';
   import Announcement from '$lib/components/announcement.svelte';
   import {
@@ -58,6 +59,7 @@
     {/each}
   </div>
   <Shows />
+  <Booking />
   {#if YOUTUBE_EMBED_URL}<EmbeddedVideo />{/if}
   {#if SPOTIFY_EMBED_URL}<EmbeddedAudio />{/if}
   <Footer />

@@ -96,6 +96,27 @@ export const SPOTIFY_EMBED_URL =
  */
 export const YOUTUBE_EMBED_URL = '';
 
+/** Where booking inquiries go (shown in the Booking section and footer). */
+export const BOOKING_EMAIL = 'alan0nymous@proton.me';
+
+/** Short line shown above the booking buttons. */
+export const BOOKING_TEXT =
+  'For shows, press, and other inquiries, get in touch.';
+
+/** Pre-filled email template for the "Email us" button. */
+export const BOOKING_SUBJECT = 'Booking inquiry: Alan Onymous';
+export const BOOKING_BODY = `Hi Alan Onymous,
+
+Date(s):
+Venue:
+City:
+Other acts on the bill:
+Set length / load-in:
+Pay / guarantee:
+Anything else:
+
+Thanks!`;
+
 /**
  * Links shown at the bottom of the page. Entries with an empty `url` are
  * hidden. Reorder freely.
@@ -108,7 +129,7 @@ export const SOCIAL_LINKS: { label: string; url: string }[] = [
   },
   { label: 'Bandcamp', url: 'https://alanonymous.bandcamp.com' },
   { label: 'YouTube', url: '' },
-  { label: 'Email', url: 'mailto:alan0nymous@proton.me' },
+  { label: 'Email', url: `mailto:${BOOKING_EMAIL}` },
 ];
 
 export type Show = {
