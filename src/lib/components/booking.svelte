@@ -105,7 +105,7 @@
           />
           {#if errors.email}<small>{errors.email}</small>{/if}
         </label>
-        <label>
+        <label class="full">
           <span>Date(s)</span>
           <input
             name="dates"
@@ -113,23 +113,6 @@
             placeholder="Fri, Feb 12"
             value={values.dates ?? ''}
           />
-        </label>
-        <label>
-          <span>Venue</span>
-          <input name="venue" maxlength="200" value={values.venue ?? ''} />
-        </label>
-        <label>
-          <span>City</span>
-          <input
-            name="city"
-            maxlength="200"
-            placeholder="San Francisco, CA"
-            value={values.city ?? ''}
-          />
-        </label>
-        <label>
-          <span>Other acts</span>
-          <input name="acts" maxlength="200" value={values.acts ?? ''} />
         </label>
       </div>
 
@@ -140,7 +123,7 @@
           rows="5"
           required
           maxlength="5000"
-          placeholder="Set length, load-in, pay/guarantee, anything else"
+          placeholder="Venue and city, other acts, set length, pay/guarantee"
           aria-invalid={Boolean(errors.message)}
           >{values.message ?? ''}</textarea
         >
@@ -205,6 +188,10 @@
     @media (max-width: 520px) {
       grid-template-columns: 1fr;
     }
+  }
+
+  .full {
+    grid-column: 1 / -1;
   }
 
   label {

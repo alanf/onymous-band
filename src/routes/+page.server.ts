@@ -22,9 +22,6 @@ export const actions: Actions = {
       name: field(data, 'name', MAX.name),
       email: field(data, 'email', MAX.email),
       dates: field(data, 'dates', MAX.short),
-      venue: field(data, 'venue', MAX.short),
-      city: field(data, 'city', MAX.short),
-      acts: field(data, 'acts', MAX.short),
       message: field(data, 'message', MAX.message),
     };
 
@@ -54,18 +51,13 @@ export const actions: Actions = {
       `Name: ${values.name}`,
       `Email: ${values.email}`,
       `Date(s): ${values.dates || '—'}`,
-      `Venue: ${values.venue || '—'}`,
-      `City: ${values.city || '—'}`,
-      `Other acts: ${values.acts || '—'}`,
       '',
       values.message,
       '',
       '— Sent from the booking form on alanonymo.us',
     ].join('\n');
 
-    const subjectBits = [values.dates, values.venue, values.city].filter(
-      Boolean,
-    );
+    const subjectBits = [values.dates].filter(Boolean);
     const subject = `Booking: ${values.name}${
       subjectBits.length ? ` — ${subjectBits.join(', ')}` : ''
     }`;
