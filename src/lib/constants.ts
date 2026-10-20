@@ -48,15 +48,39 @@ export const ANNOUNCEMENT_ACTION_TEXT = '';
 export const ANNOUNCEMENT_URL = '';
 
 /**
- * Upcoming shows. Add one line per show; past shows (by date) are hidden
- * automatically, and if there are none the section disappears.
- * `date` must be YYYY-MM-DD. `ticketUrl` is optional.
+ * Shows. Add one entry per show, in any order. Upcoming shows appear under
+ * "Shows" (soonest first); once a date passes, the show moves to "Past shows"
+ * automatically (most recent first). Each section hides when it's empty.
+ *
+ * `date` must be YYYY-MM-DD. `ticketUrl` and `lineup` are optional.
+ * Ticket buttons only appear on upcoming shows.
  *
  * @example
- * { date: '2026-12-05', venue: 'The Chapel', city: 'San Francisco, CA', ticketUrl: 'https://…' },
+ * { date: '2026-12-05', venue: 'The Chapel', city: 'San Francisco, CA', lineup: 'w/ Band A, Band B', ticketUrl: 'https://…' },
  */
 export const SHOWS: Show[] = [
-  // { date: '2026-12-05', venue: 'Venue Name', city: 'City, ST', ticketUrl: '' },
+  {
+    date: '2026-06-24',
+    venue: 'Kilowatt',
+    city: 'San Francisco, CA',
+    lineup: 'w/ Sof Dolo, Sofia RB',
+    ticketUrl:
+      'https://dice.fm/event/bbob8k-sof-dolo-alan-onymous-and-sofia-rb-24th-jun-kilowatt-san-francisco-tickets',
+  },
+  {
+    date: '2026-03-11',
+    venue: 'The Knockout',
+    city: 'San Francisco, CA',
+    lineup: 'w/ Clumsy Tungs (record release), Bad Decade, Filling',
+  },
+  {
+    date: '2025-11-13',
+    venue: 'Mabuhay Gardens',
+    city: 'San Francisco, CA',
+    lineup: 'w/ Toothache, Rose Haze',
+    ticketUrl:
+      'https://www.eventbrite.com/e/toothache-alan-onymous-rose-haze-the-fab-mab-tickets-1936951707699',
+  },
 ];
 
 /**
@@ -91,5 +115,6 @@ export type Show = {
   date: string;
   venue: string;
   city: string;
+  lineup?: string;
   ticketUrl?: string;
 };
