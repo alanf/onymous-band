@@ -55,7 +55,7 @@
 
   {#if form?.success}
     <p class="notice" role="status">
-      Thanks — your message is on its way. We'll get back to you soon.
+      Thank you for the message. We will reply soon…
     </p>
   {:else}
     <p>{BOOKING_TEXT}</p>
