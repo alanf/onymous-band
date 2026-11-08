@@ -4,6 +4,7 @@
   import EmbeddedAudio from '$lib/components/embedded-audio.svelte';
   import Shows from '$lib/components/shows.svelte';
   import Booking from '$lib/components/booking.svelte';
+  import MailingList from '$lib/components/mailing-list.svelte';
   import Footer from '$lib/components/footer.svelte';
   import Announcement from '$lib/components/announcement.svelte';
   import {
@@ -62,7 +63,10 @@
     {/each}
   </div>
   <Shows />
-  <Booking {form} />
+  <MailingList
+    state={form && 'subscribe' in form ? form.subscribe : undefined}
+  />
+  <Booking form={form && 'subscribe' in form ? null : form} />
   {#if YOUTUBE_EMBED_URL}<EmbeddedVideo />{/if}
   {#if SPOTIFY_EMBED_URL}<EmbeddedAudio />{/if}
   <Footer />
