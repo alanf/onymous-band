@@ -15,6 +15,58 @@ function field(data: FormData, key: string, max: number) {
 }
 
 export const actions: Actions = {
+  subscribe: async ({ request }) => {
+    const data = await request.formData();
+    const email = field(data, 'email', MAX.email).toLowerCase();
+
+    // Same spam checks as the booking form.
+    const honeypot = field(data, 'website', 200);
+    const startedAt = Number(data.get('started_at') ?? 0);
+    if (honeypot || (startedAt && Date.now() - startedAt < MIN_FILL_MS)) {
+      return { subscribe: { success: true } };
+    }
+
+    if (!EMAIL_RE.test(email)) {
+      return fail(400, {
+        subscribe: { email, error: 'Enter a valid email.' },
+      });
+    }
+
+    const apiKey = env.RESEND_API_KEY;
+    if (!apiKey) {
+      console.error('RESEND_API_KEY is not set');
+      return fail(500, { subscribe: { email, error: 'failed' } });
+    }
+
+    // Optional: put new subscribers in a specific Resend segment.
+    const segmentId = env.RESEND_SEGMENT_ID;
+
+    const res = await fetch('https://api.resend.com/contacts', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        unsubscribed: false,
+        ...(segmentId ? { segments: [{ id: segmentId }] } : {}),
+      }),
+    });
+
+    if (!res.ok) {
+      const body = await res.text();
+      // Already on the list counts as success.
+      if (res.status === 409 || /already exist/i.test(body)) {
+        return { subscribe: { success: true } };
+      }
+      console.error('Resend contacts error', res.status, body);
+      return fail(502, { subscribe: { email, error: 'failed' } });
+    }
+
+    return { subscribe: { success: true } };
+  },
+
   booking: async ({ request }) => {
     const data = await request.formData();
 
