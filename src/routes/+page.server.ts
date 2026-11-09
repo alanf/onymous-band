@@ -32,9 +32,11 @@ export const actions: Actions = {
       });
     }
 
-    const apiKey = env.RESEND_API_KEY;
+    // Adding contacts needs a Full-access key. Keep it separate so the
+    // booking form's key can stay sending-only.
+    const apiKey = env.RESEND_CONTACTS_API_KEY;
     if (!apiKey) {
-      console.error('RESEND_API_KEY is not set');
+      console.error('RESEND_CONTACTS_API_KEY is not set');
       return fail(500, { subscribe: { email, error: 'failed' } });
     }
 

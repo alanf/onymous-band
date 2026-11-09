@@ -33,7 +33,9 @@
     <form
       method="POST"
       action="?/subscribe#mailing-list"
-      use:enhance={() => {
+      use:enhance={({ formData }) => {
+        // Strip stray spaces (common with pasted or autofilled emails).
+        formData.set('email', String(formData.get('email') ?? '').trim());
         sending = true;
         return async ({ update }) => {
           await update({ reset: false });
@@ -54,6 +56,8 @@
             placeholder="you@example.com"
             value={state?.email ?? ''}
             aria-invalid={Boolean(error)}
+            on:blur={(e) =>
+              (e.currentTarget.value = e.currentTarget.value.trim())}
           />
         </label>
         <button type="submit" disabled={sending}>
