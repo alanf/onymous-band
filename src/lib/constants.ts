@@ -98,7 +98,7 @@ export const YOUTUBE_EMBED_URL = '';
 
 /** Line shown above the mailing-list signup. */
 export const MAILING_LIST_TEXT =
-  'Get an email when we announce a show. Rarely, and never spam.';
+  'Get an email when we have big news (nothing spammy).';
 
 /** Where booking inquiries go (shown in the Booking section and footer). */
 export const BOOKING_EMAIL = 'alan0nymous@proton.me';
