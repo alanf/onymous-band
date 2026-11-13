@@ -39,13 +39,9 @@ export const BAND_PHOTO_ALT =
  * appear without a link.
  *
  * @example
- * export const ANNOUNCEMENT_TEXT = 'New single out Friday';
- * export const ANNOUNCEMENT_ACTION_TEXT = 'PRE-SAVE';
- * export const ANNOUNCEMENT_URL = 'https://example.com';
- */
-export const ANNOUNCEMENT_TEXT = 'New single “Pluck All Your Flowers” out now';
-export const ANNOUNCEMENT_ACTION_TEXT = 'LISTEN';
-export const ANNOUNCEMENT_URL = 'https://album.link/s/0cYGH1DzFVWV8kB2oKohg9';
+ * export const ANNOUNCEMENT_TEXT = '';
+export const ANNOUNCEMENT_ACTION_TEXT = '';
+export const ANNOUNCEMENT_URL = '';
 
 /**
  * Featured release, shown near the top of the page with a Spotify player and a
