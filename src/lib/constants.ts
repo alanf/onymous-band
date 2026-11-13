@@ -43,9 +43,24 @@ export const BAND_PHOTO_ALT =
  * export const ANNOUNCEMENT_ACTION_TEXT = 'PRE-SAVE';
  * export const ANNOUNCEMENT_URL = 'https://example.com';
  */
-export const ANNOUNCEMENT_TEXT = '';
-export const ANNOUNCEMENT_ACTION_TEXT = '';
-export const ANNOUNCEMENT_URL = '';
+export const ANNOUNCEMENT_TEXT = 'New single “Pluck All Your Flowers” out now';
+export const ANNOUNCEMENT_ACTION_TEXT = 'LISTEN';
+export const ANNOUNCEMENT_URL = 'https://album.link/s/0cYGH1DzFVWV8kB2oKohg9';
+
+/**
+ * Featured release, shown near the top of the page with a Spotify player and a
+ * "listen everywhere" link. Set FEATURED_RELEASE to null to hide it.
+ *
+ * `spotifyEmbedUrl`: in Spotify, Share → Embed → copy, keep only the src value.
+ * `listenUrl`: an all-platforms link (e.g. https://album.link/s/<spotify id>).
+ */
+export const FEATURED_RELEASE: FeaturedRelease | null = {
+  label: 'New single',
+  title: 'Pluck All Your Flowers',
+  spotifyEmbedUrl:
+    'https://open.spotify.com/embed/album/0cYGH1DzFVWV8kB2oKohg9?utm_source=generator&theme=0',
+  listenUrl: 'https://album.link/s/0cYGH1DzFVWV8kB2oKohg9',
+};
 
 /**
  * Shows. Add one entry per show, in any order. Upcoming shows appear under
@@ -137,6 +152,13 @@ export const SOCIAL_LINKS: { label: string; url: string }[] = [
   { label: 'YouTube', url: '' },
   { label: 'Email', url: `mailto:${BOOKING_EMAIL}` },
 ];
+
+export type FeaturedRelease = {
+  label: string;
+  title: string;
+  spotifyEmbedUrl: string;
+  listenUrl?: string;
+};
 
 export type Show = {
   date: string;

@@ -6,10 +6,12 @@
   import Booking from '$lib/components/booking.svelte';
   import Footer from '$lib/components/footer.svelte';
   import Announcement from '$lib/components/announcement.svelte';
+  import FeaturedRelease from '$lib/components/featured-release.svelte';
   import {
     BAND_NAME,
     BAND_PHOTO_ALT,
     BIO_TEXT,
+    FEATURED_RELEASE,
     SITE_DESCRIPTION,
     SITE_URL,
     SPOTIFY_EMBED_URL,
@@ -56,6 +58,7 @@
   {#if bandPhoto}
     <img alt={BAND_PHOTO_ALT} src={bandPhoto} />
   {/if}
+  {#if FEATURED_RELEASE}<FeaturedRelease release={FEATURED_RELEASE} />{/if}
   <div class="bio">
     {#each paragraphs as paragraph}
       <p>{paragraph}</p>
