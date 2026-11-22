@@ -2,7 +2,7 @@
   import { SPOTIFY_EMBED_URL } from '$lib/constants';
 </script>
 
-<div>
+<div class="section">
   <iframe
     style="border-radius:12px"
     src={SPOTIFY_EMBED_URL}
@@ -14,9 +14,3 @@
     title="Embedded Spotify audio player"
   ></iframe>
 </div>
-
-<style>
-  div {
-    margin: 48px 0;
-  }
-</style>

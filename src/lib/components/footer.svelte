@@ -18,14 +18,15 @@
 
 <style>
   footer {
-    margin: 64px 0 0;
+    border-top: 1px solid var(--line);
+    margin: var(--section-gap) 0 0;
+    padding-top: 24px;
   }
 
   nav {
     display: flex;
     flex-wrap: wrap;
     gap: 8px 24px;
-    justify-content: center;
   }
 
   a {
@@ -43,6 +44,6 @@
   p {
     color: var(--muted);
     font-size: 13px;
-    margin: 32px 0 0;
+    margin: 16px 0 0;
   }
 </style>

@@ -50,8 +50,8 @@
   }
 </script>
 
-<section id="booking" aria-labelledby="booking-heading">
-  <h2 id="booking-heading">Booking</h2>
+<section id="booking" class="section" aria-labelledby="booking-heading">
+  <h2 id="booking-heading" class="section-title">Booking</h2>
 
   {#if form?.success}
     <p class="notice" role="status">
@@ -142,7 +142,7 @@
       </div>
       <input type="hidden" name="started_at" value={startedAt} />
 
-      <button class="primary" type="submit" disabled={sending}>
+      <button class="button" type="submit" disabled={sending}>
         {sending ? 'Sending…' : 'Send inquiry'}
       </button>
     </form>
@@ -157,19 +157,6 @@
 </section>
 
 <style>
-  section {
-    margin: 64px 0;
-    text-align: left;
-  }
-
-  h2 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 28px;
-    letter-spacing: -0.01em;
-    margin: 0 0 16px;
-    text-transform: uppercase;
-  }
-
   p {
     margin: 0 0 20px;
   }
@@ -212,7 +199,7 @@
 
   input,
   textarea {
-    background: rgba(243, 241, 236, 0.04);
+    background: var(--field);
     border: 1px solid var(--line);
     border-radius: 6px;
     color: var(--fg);
@@ -253,26 +240,8 @@
     width: 0;
   }
 
-  .primary {
+  form .button {
     align-self: flex-start;
-    background: var(--accent);
-    border: 1px solid var(--accent);
-    border-radius: 999px;
-    color: var(--fg);
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 10px 22px;
-  }
-
-  .primary:hover {
-    filter: brightness(1.1);
-  }
-
-  .primary:disabled {
-    cursor: progress;
-    opacity: 0.7;
   }
 
   .notice {

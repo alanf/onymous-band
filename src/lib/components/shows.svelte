@@ -33,10 +33,13 @@
 {#each sections as section}
   {#if section.shows.length}
     <section
+      class="section"
       aria-labelledby={`${section.id}-heading`}
       class:past={section.isPast}
     >
-      <h2 id={`${section.id}-heading`}>{section.title}</h2>
+      <h2 id={`${section.id}-heading`} class="section-title">
+        {section.title}
+      </h2>
       <ul>
         {#each section.shows as show}
           <li>
@@ -47,8 +50,11 @@
               {#if show.lineup}<span class="lineup">{show.lineup}</span>{/if}
             </span>
             {#if show.ticketUrl && !section.isPast}
-              <a href={show.ticketUrl} rel="noreferrer" target="_blank"
-                >Tickets</a
+              <a
+                class="button outline small"
+                href={show.ticketUrl}
+                rel="noreferrer"
+                target="_blank">Tickets</a
               >
             {/if}
           </li>
@@ -59,20 +65,7 @@
 {/each}
 
 <style>
-  section {
-    margin: 64px 0;
-    text-align: left;
-  }
-
-  h2 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 28px;
-    letter-spacing: -0.01em;
-    margin: 0 0 16px;
-    text-transform: uppercase;
-  }
-
-  .past h2 {
+  .past .section-title {
     color: var(--muted);
     font-size: 20px;
   }
@@ -120,22 +113,6 @@
   .lineup {
     color: var(--muted);
     font-size: 14px;
-  }
-
-  a {
-    border: 1px solid var(--accent);
-    border-radius: 999px;
-    color: var(--accent);
-    font-size: 14px;
-    font-weight: 600;
-    padding: 6px 14px;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  a:hover {
-    background: var(--accent);
-    color: var(--bg);
   }
 
   @media (max-width: 480px) {

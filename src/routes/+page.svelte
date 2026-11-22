@@ -1,5 +1,7 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import '../styles/fonts.css';
+  import '../styles/base.css';
   import EmbeddedVideo from '$lib/components/embedded-video.svelte';
   import EmbeddedAudio from '$lib/components/embedded-audio.svelte';
   import Shows from '$lib/components/shows.svelte';
@@ -10,6 +12,7 @@
   import FeaturedRelease from '$lib/components/featured-release.svelte';
   import FeaturedShow from '$lib/components/featured-show.svelte';
   import {
+    ANNOUNCEMENT_TEXT,
     BAND_NAME,
     BAND_PHOTO_ALT,
     BIO_TEXT,
@@ -40,6 +43,14 @@
   const featuredShow =
     FEATURED_SHOW && FEATURED_SHOW.date >= today ? FEATURED_SHOW : null;
 
+  // Reserve space at the bottom only while the announcement banner shows.
+  onMount(() => {
+    document.body.classList.toggle(
+      'has-announcement',
+      Boolean(ANNOUNCEMENT_TEXT),
+    );
+  });
+
   const paragraphs = BIO_TEXT.split(/\n\s*\n/).filter(Boolean);
 </script>
 
@@ -62,63 +73,38 @@
 <Announcement />
 
 <main>
-  <h1>{BAND_NAME}</h1>
-  {#if bandPhoto}
-    <img alt={BAND_PHOTO_ALT} src={bandPhoto} />
-  {/if}
+  <header>
+    <h1>{BAND_NAME}</h1>
+    {#if bandPhoto}
+      <img alt={BAND_PHOTO_ALT} src={bandPhoto} />
+    {/if}
+  </header>
   {#if featuredShow}<FeaturedShow show={featuredShow} />{/if}
-  {#if FEATURED_RELEASE}<FeaturedRelease release={FEATURED_RELEASE} />{/if}
-  <div class="bio">
+  {#if FEATURED_RELEASE}
+    <FeaturedRelease release={FEATURED_RELEASE} />
+  {:else if SPOTIFY_EMBED_URL}
+    <!-- Artist player stands in when no single is featured. -->
+    <EmbeddedAudio />
+  {/if}
+  {#if YOUTUBE_EMBED_URL}<EmbeddedVideo />{/if}
+  <section class="section bio" aria-label="About">
     {#each paragraphs as paragraph}
       <p>{paragraph}</p>
     {/each}
-  </div>
+  </section>
   <Shows />
   <MailingList
     state={form && 'subscribe' in form ? form.subscribe : undefined}
   />
   <Booking form={form && 'subscribe' in form ? null : form} />
-  {#if YOUTUBE_EMBED_URL}<EmbeddedVideo />{/if}
-  {#if SPOTIFY_EMBED_URL}<EmbeddedAudio />{/if}
   <Footer />
 </main>
 
 <style>
-  /* ---- Colors: tweak these to re-theme the whole site ---- */
-  :global(:root) {
-    --bg: #0f0f10;
-    --fg: #f3f1ec;
-    --muted: #9a978f;
-    --accent: #e0263b;
-    --line: rgba(243, 241, 236, 0.14);
-  }
-
-  :global(body) {
-    background-color: var(--bg);
-    color: var(--fg);
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 17px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-    /* Bottom margin for announcement to not block page content */
-    margin: 0 0 192px 0;
-    text-align: center;
-  }
-
-  :global(::selection) {
-    background: var(--accent);
-    color: var(--bg);
-  }
-
-  :global(:focus-visible) {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-  }
-
   main {
+    margin: 0 auto;
     max-width: 640px;
-    margin: 48px auto;
-    padding: 0 24px;
+    padding: 56px 24px 48px;
   }
 
   h1 {
@@ -127,7 +113,7 @@
     font-weight: 700;
     letter-spacing: -0.04em;
     line-height: 0.9;
-    margin: 48px 0;
+    margin: 0 0 32px;
     text-transform: uppercase;
 
     @media (max-width: 520px) {
@@ -143,11 +129,11 @@
     width: 100%;
   }
 
-  .bio {
-    margin: 48px 0;
-  }
-
   .bio p {
     margin: 0 0 1em;
+  }
+
+  .bio p:last-child {
+    margin-bottom: 0;
   }
 </style>

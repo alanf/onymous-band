@@ -9,14 +9,14 @@
   const month = when.toLocaleDateString('en-US', { month: 'short' });
 </script>
 
-<section aria-labelledby="featured-show-heading">
+<section class="section card" aria-labelledby="featured-show-heading">
   <div class="date" aria-hidden="true">
     <span class="weekday">{weekday}</span>
     <span class="day">{d}</span>
     <span class="month">{month}</span>
   </div>
   <div class="info">
-    <p class="label">{show.label}</p>
+    <p class="kicker">{show.label}</p>
     <h2 id="featured-show-heading">
       {show.venue}<span class="city">&nbsp;·&nbsp;{show.city}</span>
     </h2>
@@ -25,21 +25,23 @@
       {[show.time, show.lineup].filter(Boolean).join(' · ')}
     </p>
     {#if show.details}<p class="details">{show.details}</p>{/if}
-    <a href={show.ticketUrl} rel="noreferrer" target="_blank">Get tickets</a>
+    <a class="button" href={show.ticketUrl} rel="noreferrer" target="_blank"
+      >Get tickets</a
+    >
   </div>
 </section>
 
 <style>
-  section {
+  /* The one boxed element on the page: the show people should buy into. */
+  .card {
     align-items: center;
     border: 1px solid var(--line);
     border-left: 4px solid var(--accent);
     border-radius: 4px;
     display: flex;
     gap: 24px;
-    margin: 24px 0 48px;
+    margin-top: 24px;
     padding: 24px;
-    text-align: left;
   }
 
   .date {
@@ -56,8 +58,8 @@
   .month {
     color: var(--accent);
     font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
   }
 
   .day {
@@ -69,21 +71,13 @@
 
   .info {
     flex: 1;
-  }
-
-  .label {
-    color: var(--accent);
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    margin: 0 0 4px;
-    text-transform: uppercase;
+    min-width: 0;
   }
 
   h2 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 30px;
-    letter-spacing: -0.02em;
+    font-size: 28px;
+    letter-spacing: -0.01em;
     line-height: 1.1;
     margin: 0 0 8px;
     text-transform: uppercase;
@@ -105,36 +99,12 @@
     color: var(--muted);
   }
 
-  a {
-    background: var(--accent);
-    border: 1px solid var(--accent);
-    border-radius: 999px;
-    color: var(--fg);
-    display: inline-block;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
+  .button {
     margin-top: 16px;
-    padding: 10px 22px;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-
-  a:hover {
-    background: transparent;
-    color: var(--accent);
-  }
-
-  .sr-only {
-    clip: rect(0 0 0 0);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    width: 1px;
   }
 
   @media (max-width: 520px) {
-    section {
+    .card {
       gap: 16px;
       padding: 20px 16px;
     }
@@ -147,9 +117,8 @@
     h2 {
       font-size: 24px;
     }
-    a {
-      display: block;
-      text-align: center;
+    .button {
+      display: flex;
     }
   }
 </style>

@@ -1,0 +1,129 @@
+/*
+ * Site-wide look. Components use these tokens and classes instead of
+ * re-declaring their own, so the page stays consistent as it grows.
+ */
+
+/* ---- Colors: tweak these to re-theme the whole site ---- */
+:root {
+  --bg: #0f0f10;
+  --fg: #f3f1ec;
+  --muted: #9a978f;
+  --accent: #e0263b;
+  --line: rgba(243, 241, 236, 0.14);
+  --field: rgba(243, 241, 236, 0.04);
+
+  /* Vertical space between page sections. */
+  --section-gap: 72px;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+/* Leave room at the bottom only while the announcement banner is showing. */
+body.has-announcement {
+  margin-bottom: 192px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ---- Sections ---- */
+.section {
+  margin: var(--section-gap) 0;
+}
+
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin: 0 0 20px;
+  text-transform: uppercase;
+}
+
+/* Small red line naming what a featured block is ("New single"). */
+.kicker {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin: 0 0 6px;
+  text-transform: uppercase;
+}
+
+/* ---- Buttons: one filled (main action), one outlined (secondary) ---- */
+.button {
+  align-items: center;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--fg);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.2;
+  padding: 10px 22px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.button:hover {
+  filter: brightness(1.12);
+}
+
+.button:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+.button.outline {
+  background: transparent;
+  color: var(--accent);
+}
+
+.button.outline:hover {
+  background: var(--accent);
+  color: var(--fg);
+  filter: none;
+}
+
+.button.small {
+  font-size: 14px;
+  padding: 6px 14px;
+}
+
+.sr-only {
+  clip: rect(0 0 0 0);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
