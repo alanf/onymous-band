@@ -48,6 +48,26 @@ export const ANNOUNCEMENT_ACTION_TEXT = '';
 export const ANNOUNCEMENT_URL = '';
 
 /**
+ * Featured show, shown as a big card right under the band photo with a
+ * "Get tickets" button. It hides itself automatically the day after `date`,
+ * or set FEATURED_SHOW to null to hide it sooner. (Also list the show in SHOWS
+ * below so it appears in the Shows section and later in Past shows.)
+ *
+ * `date` must be YYYY-MM-DD. `time`, `lineup`, `details` are optional.
+ */
+export const FEATURED_SHOW: FeaturedShow | null = {
+  label: 'Album release show',
+  date: '2027-01-21',
+  time: 'Doors 7 PM',
+  venue: 'Kilowatt',
+  city: 'San Francisco',
+  lineup: 'with OVRGRWN + XERISH',
+  details: 'Visuals by Anthony Tesija · 21+',
+  ticketUrl:
+    'https://dice.fm/event/vvpy9d-alan-onymous-album-release-show-ovrgrwn-xerish-21st-jan-kilowatt-san-francisco-tickets',
+};
+
+/**
  * Featured release, shown near the top of the page with a Spotify player and a
  * "listen everywhere" link. Set FEATURED_RELEASE to null to hide it.
  *
@@ -74,6 +94,14 @@ export const FEATURED_RELEASE: FeaturedRelease | null = {
  * { date: '2026-12-05', venue: 'The Chapel', city: 'San Francisco, CA', lineup: 'w/ Band A, Band B', ticketUrl: 'https://…' },
  */
 export const SHOWS: Show[] = [
+  {
+    date: '2027-01-21',
+    venue: 'Kilowatt',
+    city: 'San Francisco, CA',
+    lineup: 'Album release show w/ OVRGRWN, XERISH',
+    ticketUrl:
+      'https://dice.fm/event/vvpy9d-alan-onymous-album-release-show-ovrgrwn-xerish-21st-jan-kilowatt-san-francisco-tickets',
+  },
   {
     date: '2026-06-24',
     venue: 'Kilowatt',
@@ -162,6 +190,17 @@ export type FeaturedRelease = {
   title: string;
   spotifyEmbedUrl: string;
   listenUrl?: string;
+};
+
+export type FeaturedShow = {
+  label: string;
+  date: string;
+  time?: string;
+  venue: string;
+  city: string;
+  lineup?: string;
+  details?: string;
+  ticketUrl: string;
 };
 
 export type Show = {

@@ -8,11 +8,13 @@
   import Footer from '$lib/components/footer.svelte';
   import Announcement from '$lib/components/announcement.svelte';
   import FeaturedRelease from '$lib/components/featured-release.svelte';
+  import FeaturedShow from '$lib/components/featured-show.svelte';
   import {
     BAND_NAME,
     BAND_PHOTO_ALT,
     BIO_TEXT,
     FEATURED_RELEASE,
+    FEATURED_SHOW,
     SITE_DESCRIPTION,
     SITE_URL,
     SPOTIFY_EMBED_URL,
@@ -32,6 +34,11 @@
 
   /** Result of the booking form action (see +page.server.ts). */
   export let form: import('./$types').ActionData;
+
+  // Featured show hides itself once its date has passed.
+  const today = new Date().toISOString().slice(0, 10);
+  const featuredShow =
+    FEATURED_SHOW && FEATURED_SHOW.date >= today ? FEATURED_SHOW : null;
 
   const paragraphs = BIO_TEXT.split(/\n\s*\n/).filter(Boolean);
 </script>
@@ -59,6 +66,7 @@
   {#if bandPhoto}
     <img alt={BAND_PHOTO_ALT} src={bandPhoto} />
   {/if}
+  {#if featuredShow}<FeaturedShow show={featuredShow} />{/if}
   {#if FEATURED_RELEASE}<FeaturedRelease release={FEATURED_RELEASE} />{/if}
   <div class="bio">
     {#each paragraphs as paragraph}
